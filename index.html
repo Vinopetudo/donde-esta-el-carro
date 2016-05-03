@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user scalable=no">
+	<link rel="stylesheet" href="estilo.css">
+	<title>Dónde está mi coche...?</title>
+</head>
+<body>
+	<h1>Dónde está mi coche...?</h1>
+	<button onclick="estacionar()"><p>E</p></button>
+    <button onclick="buscar()" id="buscar">Buscar mi carro</button>     
+    <script>
+    
+function estacionar(){
+ //obtener la posición actual y llamar a la función  "localitation" cuando tiene éxito
+ navigator.geolocation.getCurrentPosition(verPosicion);
+ }
+function verPosicion(posicion){
+    localStorage.setItem('long',posicion.coords.longitude);
+    localStorage.setItem('lat',posicion.coords.latitude)
+    document.getElementById('buscar').style.transition=".2s all"
+    document.getElementById('buscar').style.visibility="visible"
+    document.getElementById('buscar').style.opacity="1"
+}
+    
+    </script>
+</body>
+</html>
